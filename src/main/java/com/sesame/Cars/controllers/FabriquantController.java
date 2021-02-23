@@ -83,7 +83,7 @@ public class FabriquantController {
 		return "fabriquant/updateFabriquant";
 	}
 
-	@PostMapping("update")
+	@PostMapping("edit")
 	public String updateFabriquant(@Valid Fabriquant fabriquant, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
