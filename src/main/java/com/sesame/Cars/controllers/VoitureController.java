@@ -33,7 +33,6 @@ public class VoitureController {
 		this.fabriquantRepository = fabriquantRepository;
 	}
 	
-	// la liste des voitures
 	
 	@GetMapping("list")
 	public String listProviders(Model model) {
