@@ -223,7 +223,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Ajout d'une voiture</h1>
+							<h1>mettre a jour une voiture</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -257,8 +257,9 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form action="#" th:action="@{/voiture/add}"
+							<form action="#" th:action="@{/voiture/edit}"
 								th:object="${voiture}" method="post">
+								<input type="hidden" th:field="*{idv}">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
@@ -296,7 +297,10 @@
 											<label>Fabriquant</label> 
 											
 									<select name="fabriquantId" class="form-control">
-							    <option  th:each="fab: ${fabriquants}" th:value="${fab.id_f}" th:text="${fab.nomf}" />
+							    <option  th:each="fab: ${fabriquants}"
+							    		 th:value="${fab.id_f}" 
+							    		 th:text="${fab.nomf}"
+							    		 th:selected="(${fab.id_f}==${fabriquantId})" />
 							</select>
 										</div>
 										<!-- /.form-group -->

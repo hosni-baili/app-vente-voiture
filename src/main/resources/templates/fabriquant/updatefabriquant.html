@@ -200,7 +200,8 @@
 		<div class="content-wrapper">
 			<section class="content">
 				<div class="card card-success">
-			<form action="#" th:action="@{/fabriquant/add}" th:object="${fabriquant}" method="post">
+			<form action="#" th:action="@{/fabriquant/edit}" th:object="${fabriquant}" method="post">
+			<input type="hidden" th:field="*{id_f}"
 						<div class="card-body">
 							<label>Nom </label> 
 							<input class="form-control form-control-lg"

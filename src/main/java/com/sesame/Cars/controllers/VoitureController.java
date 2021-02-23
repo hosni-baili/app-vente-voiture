@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -58,7 +59,7 @@ public class VoitureController {
 		return "voiture/addVoiture";
 	}
 	
-	@PostMapping("add")
+	@PutMapping("add")
 	// @ResponseBody
 	public String ajoutVoiture(@Valid Voiture voiture, BindingResult result,
 			@RequestParam(name = "fabriquantId", required = false) Long p,Model model) {
