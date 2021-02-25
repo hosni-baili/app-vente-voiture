@@ -48,12 +48,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll() // accès pour tous users
                 .antMatchers("/registration").permitAll() // accès pour tous users
                 .antMatchers("/role/**").permitAll()
-                .antMatchers("/accounts/**").permitAll()
-                .antMatchers("/voiture/**").permitAll()
+                //.antMatchers("/accounts/**").permitAll()
+                //.antMatchers("/voiture/**").permitAll()
 
-                .antMatchers("/voiture/**").hasAnyAuthority("USER","ADMIN", "SUPERADMIN")
-
-                .antMatchers("/fabriquant/**").hasAnyAuthority("ADMIN", "SUPERADMIN")
+                .antMatchers("/fabriquant/**").hasAnyAuthority("USER","ADMIN", "SUPERADMIN")
                 .antMatchers("/fabriquant/**").hasAnyAuthority("USER", "SUPERADMIN").anyRequest()
 
                 
