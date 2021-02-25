@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>List Voiture</title>
+<title>Golden cars Cars</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-<!-- IonIcons -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/css/adminlte.min.css">
 </head>
-
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
+
 		<!-- Navbar -->
 		<nav
 			class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -27,31 +27,29 @@
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#" role="button"><i class="fas fa-bars"></i></a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/home}" class="nav-link">Home</a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/accounts/list}" class="nav-link">Utilisateurs</a></li>
-			</ul>
-
-			<ul class="navbar-nav ml-auto">
-				<!-- Messages Dropdown Menu -->
-				<!-- Notifications Dropdown Menu -->
-				<li class="nav-item dropdown"><span>Logged user: <span
-						sec:authentication="name"></span> <a th:href="@{/logout}">//Sign
-							Out</a></li>
+					href="index3.html" class="nav-link">Home</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="#"
+					class="nav-link">Uitilisateurs</a></li>
 			</ul>
 		</nav>
+
 		<!-- /.navbar -->
 
 		<!-- Main Sidebar Container -->
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<!-- Brand Logo -->
+			<a href="index3.html" class="brand-link"> <img
+				src="/img/AdminLTELogo.png"
+				class="brand-image img-circle elevation-3" style="opacity: .8">
+				<span class="brand-text font-weight-light">role utilisateur</span>
+			</a>
+
 			<!-- Sidebar -->
 			<div class="sidebar">
 				<!-- Sidebar user panel (optional) -->
 				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 					<div class="image">
-						<img src="../../img/user2-160x160.jpg"
-							class="img-circle elevation-2">
+						<img src="img/user2-160x160.jpg" class="img-circle elevation-2">
 					</div>
 					<div class="info">
 						<a href="#" class="d-block">nom utilisateur</a>
@@ -62,10 +60,11 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-
+						<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
 
 						<li class="nav-header">Nos Produits</li>
-						<li class="nav-item menu"><a href="#"
+						<li class="nav-item menu-open"><a th:href="@{/voiture/list}"
 							class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
@@ -73,17 +72,17 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a th:href="@{/voiture/list}"
+								<li class="nav-item"><a href="./index.html"
 									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Les voitures neufs</p>
+										<p>Peugeot</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Les voitures occassions</p>
+										<p>Mercedes</p>
 								</a></li>
 							</ul></li>
 
-						<li class="nav-item menu"><a href="#"
+						<li class="nav-item menu-open"><a th:href="@{/fabriquant/list}"
 							class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
@@ -91,15 +90,13 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-							<!-- apporter les fabriquants a traver chaque page
-							 "select nom from fabriquant " -->
-								<li class="nav-item"><a th:href="@{/fabriquant/list}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Fabriquant Auto</p>
+								<li class="nav-item"><a href="./index.html"
+									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+										<p>Peugeot</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Fabriquant pieces-Auto</p>
+										<p>Mercedes</p>
 								</a></li>
 							</ul></li>
 
@@ -109,7 +106,18 @@
 								<p>
 									Moto <i class="right fas fa-angle-left"></i>
 								</p>
-						</a></li>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="./index.html"
+									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+										<p>Piagio</p>
+								</a></li>
+
+								<li class="nav-item"><a href="./index2.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>Ducati</p>
+								</a></li>
+							</ul></li>
 
 						<li class="nav-item menu-open"><a href="#"
 							class="nav-link active"> <i
@@ -118,6 +126,21 @@
 									Le nouveau arrivage <i class="right fas fa-angle-left"></i>
 								</p>
 						</a></li>
+
+
+						<li class="nav-header">Formulaire inscription</li>
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="nav-icon fas fa-edit"></i>
+								<p>
+									Forms <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="pages/forms/general.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>General Elements</p>
+								</a></li>
+							</ul></li>
 
 						<li class="nav-header">Uliles</li>
 						<li class="nav-item"><a href="pages/calendar.html"
@@ -139,6 +162,11 @@
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Profile</p>
 								</a></li>
+								<li class="nav-item"><a
+									href="pages/examples/e-commerce.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>E-commerce</p>
+								</a></li>
 							</ul></li>
 
 						<li class="nav-item"><a href="#" class="nav-link"> <i
@@ -148,14 +176,14 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a th:href="@{/logout}"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										Deconnexion
+								<li class="nav-item"><a href="#" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Logout</p>
 								</a></li>
 
-								<li class="nav-item"><a th:href="@{/registration}"
+								<li class="nav-item"><a href="pages/examples/500.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Nouveau enregistrement</p>
+										<p>New registration</p>
 								</a></li>
 
 							</ul></li>
@@ -167,73 +195,40 @@
 		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
+		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<div class="content-header"></div>
-
-			<!-- Main content -->
-			<section class="content">
-				<a th:href="@{'/voiture/add/'}"><button type="button"
-						class="btn btn-outline-success btn-block">
-						<i class="fas fa-plus ml-2"></i>Ajouter une nouvelle voiture
-					</button></a>
-					<div class="content-header"></div>
-				<div th:switch="${voitures}">
-					<h2 th:case="null">Pas de voitures!</h2>
-					<div th:case="*">
-						<div class="row">
-							<div class="col-md-6" th:each="voiture : ${voitures}">
-								<div class="card card-widget widget-user">
-									<!-- Add the bg color to the header using any of the bg-* classes -->
-									<div class="widget-user-header bg-info">
-										<div class="widget-user-image">
-											<img class="img-circle elevation-2"
-												src="../../img/user7-128x128.jpg" alt="User Avatar">
-										</div>
-										<!-- /.widget-user-image -->
-										<h3 class="widget-user-username" th:text="${voiture.modele}"></h3>
-									</div>
-									<div class="card-footer p-0">
-										<ul class="nav flex-column">
-											<li class="nav-item"><a href="#" class="nav-link">
-													Puissance <span class="float-right badge bg-primary"
-													th:text="${voiture.puissance}"></span>
-											</a></li>
-											<li class="nav-item"><a href="#" class="nav-link">
-													Energie <span class="float-right badge bg-info"
-													th:text="${voiture.energie}"></span>
-											</a></li>
-											<li class="nav-item"><a href="#" class="nav-link">
-													Prix <span class="float-right badge bg-danger"
-													th:text="${voiture.prix}"></span>
-											</a></li>
-										</ul>
-									</div>
-									<div class="card-body" align="center">
-										<a class="btn btn-block bg-gradient-warning btn-sm"
-											th:href="@{/voiture/edit/{id}(id=${voiture.idv})}"> <i
-											class="fas fa-edit"></i> Edit
-										</a> <a th:href="@{/voiture/delete/{id}(id=${voiture.idv})}"
-											class="btn btn-block bg-gradient-danger btn-sm"> <i
-											class="fas fa-trash-alt"></i> Effacer
-										</a> <a th:href="@{/voiture/commande/{id}(id=${voiture.idv})}"
-											class="btn btn-block bg-gradient-success btn-sm"> <i
-											class="fas fa-trash-alt"></i> Commander
-										</a>
-									</div>
-
-								</div>
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+							</ol>
+							<div class="container" align="right">
+								<span>Logged user: <span sec:authentication="name"></span>
+									<a th:href="@{/logout}">Sign Out</a>
 							</div>
-
 						</div>
 					</div>
+				</div>
+				<!-- /.container-fluid -->
 			</section>
 
-			<!-- /.content -->
+			<!-- Main content -->
+
+			<section class="content">
+
+				<h1 align="center">Bienvevue dans notre site</h1>
+
+
+
+			</section>
 		</div>
+		<!-- /.row -->
 
-		<aside class="control-sidebar control-sidebar-dark"></aside>
-
+		<!-- /.row -->
+		<!-- /.content-wrapper -->
 		<footer class="main-footer">
 			<strong>Copyright &copy; 2020-2021 <a
 				href="https://adminlte.io">Application Vente_voiture</a>.
@@ -242,21 +237,23 @@
 				<b>Version</b> 0.0
 			</div>
 		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
 	</div>
+	<!-- ./wrapper -->
+
 	<!-- jQuery -->
-	<script src="../../plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- AdminLTE -->
-	<script src="../../js/adminlte.js"></script>
-
-	<!-- OPTIONAL SCRIPTS -->
-	<script src="../../plugins/chart.js/Chart.min.js"></script>
+	<!-- jQuery -->
+	<script src="/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
-	<script src="../../js/demo.js"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="../../js/pages/dashboard3.js"></script>
+	<script src="/js/demo.js"></script>
 </body>
-
 </html>
-
