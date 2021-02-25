@@ -8,6 +8,15 @@
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+<!-- IonIcons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/css/adminlte.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="/fontawesome-free/css/all.min.css">
 <!-- daterange picker -->
@@ -86,7 +95,7 @@
                with font-awesome or any other icon font library -->
 
 						<li class="nav-header">Nos Produits</li>
-						<li class="nav-item menu-open"><a th:href="@{/voiture/list}"
+						<li class="nav-item menu"><a href="#"
 							class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
@@ -94,17 +103,17 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="./index.html"
+								<li class="nav-item"><a th:href="@{/voiture/list}"
 									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Peugeot</p>
+										<p>Les voitures neufs</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Mercedes</p>
+										<p>Les voitures occassions</p>
 								</a></li>
 							</ul></li>
 
-						<li class="nav-item menu-open"><a th:href="@{/fabriquant/list}"
+						<li class="nav-item menu"><a href="#"
 							class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
@@ -112,13 +121,15 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="./index.html"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Peugeot</p>
+							<!-- apporter les fabriquants a traver chaque page
+							 "select nom from fabriquant " -->
+								<li class="nav-item"><a th:href="@{/fabriquant/list}"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>Fabriquant Auto</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Mercedes</p>
+										<p>Fabriquant pieces-Auto</p>
 								</a></li>
 							</ul></li>
 
@@ -345,35 +356,18 @@
 	<!-- ./wrapper -->
 
 	<!-- jQuery -->
-	<script src="/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Select2 -->
-	<script src="/select2/js/select2.full.min.js"></script>
-	<!-- Bootstrap4 Duallistbox -->
-	<script
-		src="/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-	<!-- InputMask -->
-	<script src="/moment/moment.min.js"></script>
-	<script src="/inputmask/jquery.inputmask.min.js"></script>
-	<!-- date-range-picker -->
-	<script src="/daterangepicker/daterangepicker.js"></script>
-	<!-- bootstrap color picker -->
-	<script src="/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-	<!-- Tempusdominus Bootstrap 4 -->
-	<script
-		src="/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-	<!-- Bootstrap Switch -->
-	<script src="/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<!-- BS-Stepper -->
-	<script src="/bs-stepper/js/bs-stepper.min.js"></script>
-	<!-- dropzonejs -->
-	<script src="/dropzone/min/dropzone.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="/js/adminlte.min.js"></script>
+	<script src="../../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE -->
+	<script src="../../js/adminlte.js"></script>
+
+	<!-- OPTIONAL SCRIPTS -->
+	<script src="../../plugins/chart.js/Chart.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
-	<script src="/js/demo.js"></script>
-	<!-- Page specific script -->
+	<script src="../../js/demo.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="../../js/pages/dashboard3.js"></script>
 </body>
 </html>
 

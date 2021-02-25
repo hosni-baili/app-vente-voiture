@@ -20,7 +20,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Sign in pour commencer session</p>
 
 		<form th:action="@{/login}" method="POST" class="form-signin">
         <div class="input-group mb-3">
@@ -68,11 +68,13 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a th:href="@{/forgot-password.html}">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a th:href="@{/registration}" class="text-center"> 
+        enregistrer un nouveau membre</a>
       </p>
+
     </div>
     <!-- /.login-card-body -->
   </div>

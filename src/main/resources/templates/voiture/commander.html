@@ -3,9 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Super Cars</title>
+<title>Coomander</title>
 
 <!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+<!-- IonIcons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/css/adminlte.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome -->
@@ -86,45 +95,44 @@
                with font-awesome or any other icon font library -->
 
 						<li class="nav-header">Nos Produits</li>
-						<li class="nav-item menu-open"><a th:href="@{/voiture/list}"
-							class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
+						<li class="nav-item menu"><a href="#" class="nav-link active">
+								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Voitures_neuves <i class="right fas fa-angle-left"></i>
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="./index.html"
+								<li class="nav-item"><a th:href="@{/voiture/list}"
 									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Peugeot</p>
+										<p>Les voitures neufs</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Mercedes</p>
+										<p>Les voitures occassions</p>
 								</a></li>
 							</ul></li>
 
-						<li class="nav-item menu-open"><a
-							th:href="@{/fabriquant/list}" class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
+						<li class="nav-item menu"><a href="#" class="nav-link active">
+								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Fabriquants <i class="right fas fa-angle-left"></i>
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="./index.html"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Peugeot</p>
+								<!-- apporter les fabriquants a traver chaque page
+							 "select nom from fabriquant " -->
+								<li class="nav-item"><a th:href="@{/fabriquant/list}"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>Fabriquant Auto</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Mercedes</p>
+										<p>Fabriquant pieces-Auto</p>
 								</a></li>
 							</ul></li>
 
-						<li class="nav-item menu-open"><a href="#"
-							class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
+						<li class="nav-item menu"><a href="#" class="nav-link active">
+								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Moto <i class="right fas fa-angle-left"></i>
 								</p>
@@ -223,19 +231,17 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Commande d'une voiture</h1>
+							<h1>Commande de la voiture</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">commande voiture</li>
+								<li class="breadcrumb-item active">commande</li>
 							</ol>
 						</div>
 					</div>
 				</div>
 				<!-- /.container-fluid -->
-			</section>
-
 			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
@@ -259,55 +265,83 @@
 						<div class="card-body">
 							<form action="#" th:action="@{/voiture/achat}"
 								th:object="${voiture}" method="post">
+								<input type="hidden" th:field="*{idv}">
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade
+											GTX Mid Hiking Boots Review</h3>
+										<div class="col-12">
+											<img src="../../dist/img/prod-1.jpg" class="product-image"
+												alt="Product Image">
+										</div>
+										<div class="col-12 product-image-thumbs">
+											<div class="product-image-thumb active">
+												<img src="../../dist/img/prod-1.jpg" alt="Product Image">
+											</div>
+											<div class="product-image-thumb">
+												<img src="../../dist/img/prod-2.jpg" alt="Product Image">
+											</div>
+											<div class="product-image-thumb">
+												<img src="../../dist/img/prod-3.jpg" alt="Product Image">
+											</div>
+											<div class="product-image-thumb">
+												<img src="../../dist/img/prod-4.jpg" alt="Product Image">
+											</div>
+											<div class="product-image-thumb">
+												<img src="../../dist/img/prod-5.jpg" alt="Product Image">
+											</div>
+										</div>
+									</div>
+								</div>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Modele</label> <input disabled="disabled" type="text"
-												th:field="*{modele}" class="form-control" id="modele"
+											<label>Modele</label> <input type="text" th:field="*{modele}"
+												class="form-control" id="modele"
 												placeholder="tapez le modele" />
 										</div>
 										<!-- /.form-group -->
 										<div class="form-group">
-											<label>Puissance</label> <input disabled="disabled"
-												type="text" th:field="*{puissance}" class="form-control"
-												id="puissance" />
+											<label>Puissance</label> <input type="text"
+												th:field="*{puissance}" class="form-control" id="puissance" />
 										</div>
 										<div class="form-group">
-											<label>Energie</label> <input disabled="disabled" type="text"
+											<label>Energie</label> <input type="text"
 												th:field="*{energie}" class="form-control" id="energie" />
 										</div>
 										<div class="form-group">
-											<label>prix</label> <input disabled="disabled" type="text"
-												th:field="*{prix}" class="form-control" id="prix" />
+											<label>prix</label> <input type="text" th:field="*{prix}"
+												class="form-control" id="prix" />
 										</div>
 									</div>
 
 									<div class="col-md-6">
 
 										<div class="form-group">
-											<label>Fabriquant</label> <input disabled="disabled"
-												 th:field="*{fabriquant.nomf}" class="form-control" id="fabriquant" /> 
+											<label>Fabriquant</label> <input type="text"
+												th:field="*{fabriquant.nomf}" class="form-control"
+												id="fabriquant" />
 										</div>
 
 										<div class="form-group">
-											<label>Nom_acheteur</label> 
-											<input type="text" name="nom" class="form-control" /> 
+											<label>Nom_acheteur</label> <input type="text" name="nom"
+												class="form-control" />
 										</div>
 
 										<div class="form-group">
-											<label>Prenom_acheteur</label> 
-											<input type="text" name="prenom" class="form-control" /> 
+											<label>Prenom_acheteur</label> <input type="text"
+												name="prenom" class="form-control" />
 
 										</div>
 
 										<div class="form-group">
-											<label>Email</label> 
-											<input type="text" name="email" class="form-control" /> 
+											<label>Email</label> <input type="text" name="email"
+												class="form-control" />
 										</div>
 
 										<div class="form-group">
-											<label>Address</label> 
-											<input type="text" name="address" class="form-control" />
+											<label>Address</label> <input type="text" name="address"
+												class="form-control" />
 										</div>
 										<!-- /.form-group -->
 									</div>
@@ -317,10 +351,11 @@
 								<div class="container">
 
 									<span class="btn btn-success col fileinput-button"> <i
-										class="fas fa-plus"></i> 
-										<a th:href="@{/voiture/achat/{id}(id=${voiture.idv})}"><input type="submit" class="btn btn-success"  
-										value="Acheter la voiture" /></a>
-																	
+										class="fas fa-plus"></i> <a
+										th:href="@{/voiture/achat/{id}(id=${voiture.idv})}"><input
+											type="submit" class="btn btn-success"
+											value="Acheter la voiture" /></a>
+
 									</span>
 								</div>
 							</form>
@@ -384,6 +419,18 @@
 	<script src="/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="/js/demo.js"></script>
+	<script src="../../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE -->
+	<script src="../../js/adminlte.js"></script>
+
+	<!-- OPTIONAL SCRIPTS -->
+	<script src="../../plugins/chart.js/Chart.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../../js/demo.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="../../js/pages/dashboard3.js"></script>
 	<!-- Page specific script -->
 </body>
 </html>

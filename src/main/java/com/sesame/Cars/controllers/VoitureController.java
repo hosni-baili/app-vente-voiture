@@ -65,7 +65,7 @@ public class VoitureController {
 		return "voiture/addVoiture";
 	}
 	
-	@PutMapping("add")
+	@PostMapping("add")
 	// @ResponseBody
 	public String ajoutVoiture(@Valid Voiture voiture, BindingResult result,
 			@RequestParam(name = "fabriquantId", required = false) Long p,Model model) {
@@ -131,38 +131,41 @@ public class VoitureController {
 	}
 	
 	//commander une voiture
-//	
-//	@GetMapping("commande/{id}")
-//	public String showVoitureFormTocommander(@PathVariable("id") long id, Model model) {
-//		Voiture voiture = voitureRepository.findById(id)
-//				.orElseThrow(() -> new IllegalArgumentException("Invalid voiture Id:" + id));
-//		model.addAttribute("voiture", voiture);
-//		return "voiture/commander";
-//	}
-//
-//	@Autowired
-//	 private JavaMailSender javaMailSender;
-//	
-//	@PostMapping("achat/{id}")
-//	@ResponseBody
-//    public String confirmeAchat(@PathVariable ("id") long id, @RequestParam("name")String email,
-//    		@RequestParam("name")String nom,@RequestParam("name")String prenom) {
-//		 sendEmail(email,nom,prenom);
-//		 Voiture voiture = voitureRepository.findById(id)
-//				 .orElseThrow(()->new IllegalArgumentException("Invalid voiture Id:" + id));
-//	     voitureRepository.delete(voiture);
-//    	return "voiture/achatreussi";
-//    }
-//	
-//	  void sendEmail(String email,String nom,String prenom) {
-//
-//	        SimpleMailMessage msg = new SimpleMailMessage();
-//	        msg.setTo(email);
-//	        msg.setSubject("Achat de voiture");
-//	        msg.setText("Hello, "+nom+prenom+"  ton achat a ete effectuee avec succes. ");
-//	        javaMailSender.send(msg);
-//
-//	    }
+	
+	@Autowired
+	 private JavaMailSender javaMailSender;
+	
+	@GetMapping("commande/{id}")
+	public String showVoitureFormTocommander(@PathVariable("id") long id, Model model) {
+		Voiture voiture = voitureRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid voiture Id:" + id));
+		model.addAttribute("voiture", voiture);
+		return "voiture/commander";
+	}
+
+	
+	@PostMapping("achat")
+	//@ResponseBody
+    public String confirmeAchat(@Valid Voiture voiture, @RequestParam("email")String email,
+    		@RequestParam("nom")String nom,@RequestParam("prenom")String prenom) {
+		 //sendEmail(email,nom,prenom);
+		 long id=voiture.getIdv();
+		 System.out.println("id= "+id);
+		 voiture = voitureRepository.findById(id)
+				 .orElseThrow(()->new IllegalArgumentException("Invalid voiture Id:" + id));
+	     //voitureRepository.delete(voiture);
+    	return "voiture/achatreussi";
+    }
+	
+	  void sendEmail(String email,String nom,String prenom) {
+
+	        SimpleMailMessage msg = new SimpleMailMessage();
+	        msg.setTo(email);
+	        msg.setSubject("Achat de voiture");
+	        msg.setText("Hello, "+nom+prenom+"  ton achat a ete effectuee avec succes. ");
+	        javaMailSender.send(msg);
+ }
+	  
 }
 
 
